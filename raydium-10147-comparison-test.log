@@ -1,0 +1,9 @@
+day: 2026-11-05
+before_rows: 4
+after_rows: 6
+net_rows: 2
+recovered_instructions: 1
+lost_instructions: 1
+instructions_with_new_duplicates: 2
+new_duplicate_rows: 2
+Fixture passed. Warehouse validation pending.

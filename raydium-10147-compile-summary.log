@@ -1,0 +1,16 @@
+PR head: 245a3a664ee64feef56165693f4301ca2531ea59
+Model source SHA-256: bfd7925bc3ba9c30eca01cb59d552005d1f817aa98db3fafb81879e022f7918c
+Isolated copy matches published model bytes. Existing local guard was left untouched.
+08:49:39  Running with dbt=1.12.4
+INFO:trino.auth:keyring module not found. OAuth2 token will not be stored in keyring.
+INFO:trino.auth:keyring module not found. OAuth2 token will not be stored in keyring.
+08:49:39  Registered adapter: trino=1.10.3
+08:49:39  Unable to do partial parsing because saved manifest not found. Starting full parse.
+08:49:48  Found 264 models, 555 data tests, 39 seeds, 10129 sources, 706 macros
+08:49:48  
+08:49:48  Concurrency: 1 threads (target='dev')
+08:49:48  
+Compiled node 'raydium_v3_base_trades_backfill' is:
+
+
+Compile exited 0; no warehouse run was performed.

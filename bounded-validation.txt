@@ -1,0 +1,31 @@
+Raydium #10147: bounded warehouse validation proposal
+
+Run within the trusted CI environment, using its configured $PROFILE, a fresh
+isolated CI schema, and main manifest for --defer/--state. Do not run against production.
+
+uv run dbt run $PROFILE \
+  --project-dir dbt_subprojects/solana \
+  --select raydium_v3_base_trades_backfill --defer --state . \
+  --event-time-start 2026-10-22 --event-time-end 2026-11-16
+
+uv run dbt test $PROFILE \
+  --project-dir dbt_subprojects/solana \
+  --select raydium_v3_base_trades_backfill --defer --state .
+
+Replay a single already-populated day, then repeat the tests to check uniqueness:
+
+uv run dbt run $PROFILE \
+  --project-dir dbt_subprojects/solana \
+  --select raydium_v3_base_trades_backfill --defer --state . \
+  --event-time-start 2026-11-15 --event-time-end 2026-11-16
+
+uv run dbt test $PROFILE \
+  --project-dir dbt_subprojects/solana \
+  --select raydium_v3_base_trades_backfill --defer --state .
+
+The event-time bounds plan 25 daily batches for the first run and one day for replay.
+This was checked with installed dbt 1.12.4 MicrobatchBuilder, not executed on Dune.
+Use the comparison and filter-impact SQL to measure recovered/lost instructions,
+extra duplicate keys and exclusions. Include example transaction IDs for ambiguity.
+A bounded pass does not replace the required full historical CI validation.
+No source date filters or begin configuration need to change.

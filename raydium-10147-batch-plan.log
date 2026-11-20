@@ -1,0 +1,4 @@
+Historical CI batches= 1554 start= 2022-08-17T00:00:00+00:00 end(exclusive)= 2026-11-18T00:00:00+00:00
+Bounded comparison batches= 25 start= 2026-10-22T00:00:00+00:00 end(exclusive)= 2026-11-16T00:00:00+00:00
+Single-day replay batches= 1 start= 2026-11-15T00:00:00+00:00 end(exclusive)= 2026-11-16T00:00:00+00:00
+PASS: batch planning only; no warehouse query executed.
